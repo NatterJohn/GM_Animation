@@ -2,16 +2,26 @@ using UnityEngine;
 
 public class AnimationScript : MonoBehaviour
 {
-    private Animator yappy;
-    private Animator step;
+    Animator yappy;
+    Animator step;
     void Start()
     {
-        yappy = GetComponent<Animator>();
-        step = GetComponent<Animator>();
+        yappy = gameObject.GetComponent<Animator>();
+        step = gameObject.GetComponent<Animator>();
+        step.SetBool("Walk", false);
+        yappy.SetBool("Talk", false);
     }
     void Update()
     {
-        yappy.SetBool("Talk", Input.GetKeyDown(KeyCode.Space));
-        step.SetBool("Walk", Input.GetKey(KeyCode.LeftControl));
+        if (Input.GetKey(KeyCode.Space))
+            step.SetBool("Walk", true);
+        else
+            step.SetBool("Walk", false);
+        if (Input.GetKey(KeyCode.LeftControl))
+            yappy.SetBool("Talk", true);
+        else
+            yappy.SetBool("Talk", false);
+
+
     }
 }
