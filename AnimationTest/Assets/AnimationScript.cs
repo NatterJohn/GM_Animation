@@ -14,14 +14,12 @@ public class AnimationScript : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.Space))
-            step.SetBool("Walk", true);
+            step.SetLayerWeight(1, 1f);
         else
-            step.SetBool("Walk", false);
+            step.SetLayerWeight(1, 0f);
         if (Input.GetKey(KeyCode.LeftControl))
-            yappy.SetBool("Talk", true);
+            yappy.SetLayerWeight(2, 1f);
         else
-            yappy.SetBool("Talk", false);
-
-
+            yappy.SetLayerWeight(2, 0f);
     }
 }
