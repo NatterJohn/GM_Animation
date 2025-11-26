@@ -6,13 +6,13 @@ public class AnimationScript : MonoBehaviour
     Animator step;
     void Start()
     {
+        //Gets the animator applied to the object this script is attached to
         yappy = gameObject.GetComponent<Animator>();
         step = gameObject.GetComponent<Animator>();
-        step.SetBool("Walk", false);
-        yappy.SetBool("Talk", false);
     }
     void Update()
     {
+        //If the specified Key is pressed, the weight of the specified layer is set to 1. The Walking layer is Layer 1 and the Talking layer is Layer 2. (The Idle layer is 0)
         if (Input.GetKey(KeyCode.Space))
             step.SetLayerWeight(1, 1f);
         else
